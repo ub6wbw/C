@@ -1,0 +1,76 @@
+1/* GCC C-code */
+2	
+3	char a, b, c, d, e;
+4	unsigned short summa;
+5	
+6	int main(void)
+7	{
+8	  a = 0x11;
+9	  b = 0x22;
+10	  c = 0x33;
+11	  d = 0x44;
+12	  e = 0x55;
+13	  
+14	  summa = a+b+c+d+e;
+15	  
+16	  return 0;
+17	}
+
+/* GDB assembler code */
+Dump of assembler code for function main:
+   0x000103d0 <+0>:	push	{r11}		; save r11 to stack (str r11, [sp, #-4]!)
+   0x000103d4 <+4>:	add	r11, sp, #0	; r11 = sp + 0 (r11 = sp) - save stack pointer in r11
+   0x000103d8 <+8>:	ldr	r3, [pc, #172]	; r3 = DWORD [pc + 172] (r3 = [0x1048c])
+   0x000103dc <+12>:	mov	r2, #17		; r2 = #17 (0x11)
+   0x000103e0 <+16>:	strb	r2, [r3]	; [r3] = #17 (0x11)
+   0x000103e4 <+20>:	ldr	r3, [pc, #164]	; r3 = DWORD [pc + 164] (r3 = [0x10490])
+   0x000103e8 <+24>:	mov	r2, #34		; r2 = #34 (0x22)
+   0x000103ec <+28>:	strb	r2, [r3]	; [r3] = #34 (0x22)
+   0x000103f0 <+32>:	ldr	r3, [pc, #156]	; r3 = DWORD [pc + 156] (r3 = [0x10494])
+   0x000103f4 <+36>:	mov	r2, #51		; r2 = #51 (0x33)
+   0x000103f8 <+40>:	strb	r2, [r3]	; [r3] = #51 (0x33)
+   0x000103fc <+44>:	ldr	r3, [pc, #148]	; r3 = DWORD [pc + 148] (r3 = [0x10498])
+   0x00010400 <+48>:	mov	r2, #68		; r2 = #68 (0x44)
+   0x00010404 <+52>:	strb	r2, [r3]	; [r3] = #68 (0x44)
+   0x00010408 <+56>:	ldr	r3, [pc, #140]	; r3 = DWORD [pc + 140] (r3 = [0x1049c])
+   0x0001040c <+60>:	mov	r2, #85		; r2 = #85 (0x55)
+   0x00010410 <+64>:	strb	r2, [r3]	; [r3] = #85 (0x55)
+   0x00010414 <+68>:	ldr	r3, [pc, #112]	; r3 = DWORD [pc + 112] (r3 = [0x1048c])
+   0x00010418 <+72>:	ldrb	r3, [r3]	; r3 = BYTE [r3]
+   0x0001041c <+76>:	uxth	r2, r3		; r2 = extended R3 from 16 to 32 bits
+   0x00010420 <+80>:	ldr	r3, [pc, #104]	; r3 = DWORD [pc + 104] (r3 = [0x10490])
+   0x00010424 <+84>:	ldrb	r3, [r3]	; r3 = BYTE [r3]
+   0x00010428 <+88>:	uxth	r3, r3		; r3 = extended R3 from 16 to 32 bit
+   0x0001042c <+92>:	add	r3, r2, r3	; r3 = r3 + r2
+   0x00010430 <+96>:	uxth	r2, r3		; r2 =  extended R3 from 16 to 32 bit
+   0x00010434 <+100>:	ldr	r3, [pc, #88]	; r3 = DWORD [pc + 88] (r3 = [0x10494])
+   0x00010438 <+104>:	ldrb	r3, [r3]	; r3 = BYTE [r3]
+   0x0001043c <+108>:	uxth	r3, r3		; r3 = extended R3 from 16 to 32 bit
+   0x00010440 <+112>:	add	r3, r2, r3	; r3 = r3 + r2
+   0x00010444 <+116>:	uxth	r2, r3		; r2 = extended R3 from 16 to 32 bit
+   0x00010448 <+120>:	ldr	r3, [pc, #72]	; r3 = DWORD [pc + 72] (r3 = [0x10498])
+   0x0001044c <+124>:	ldrb	r3, [r3]	; r3 = BYTE [r3]
+   0x00010450 <+128>:	uxth	r3, r3		; r3 = extended R3 from 16 to 32 bit
+   0x00010454 <+132>:	add	r3, r2, r3	; r3 = r3 + r2
+   0x00010458 <+136>:	uxth	r2, r3		; r2 = extended R3 from 16 to 32 bit
+   0x0001045c <+140>:	ldr	r3, [pc, #56]	; r3 = DWORD [pc + 56] (r3 = [0x1049c])
+   0x00010460 <+144>:	ldrb	r3, [r3]	; r3 = BYTE [r3]
+   0x00010464 <+148>:	uxth	r3, r3		; r3 = extended R3 from 16 to 32 bit
+   0x00010468 <+152>:	add	r3, r2, r3	; r3 = r3 + r2
+   0x0001046c <+156>:	uxth	r3, r3		; r3 = extended R3 from 16 to 32 bit
+   0x00010470 <+160>:	ldr	r2, [pc, #40]	; r2 = DWORD [pc + 40] (r2 = [0x104a0])
+   0x00010474 <+164>:	strh	r3, [r2]	; [r2] = r3 [bits 0-15]
+   0x00010478 <+168>:	mov	r3, #0		; r3 = 0
+   0x0001047c <+172>:	mov	r0, r3		; r0 = 0 (r3)
+   0x00010480 <+176>:	add	sp, r11, #0	; sp = r11 + 0 (sp = r11) - restore stack pointer
+   0x00010484 <+180>:	pop	{r11}		; restore r11 from stack (ldr r11, [sp], #4)
+   0x00010488 <+184>:	bx	lr		; back to OS
+   
+   ; ------------ MEMORY (POINTERS) ----------- ; 
+   0x0001048c <+188>:	andeq	r1, r2, r6, lsr #32
+   0x00010490 <+192>:	andeq	r1, r2, r7, lsr #32
+   0x00010494 <+196>:	andeq	r1, r2, r8, lsr #32
+   0x00010498 <+200>:	andeq	r1, r2, r9, lsr #32
+   0x0001049c <+204>:	andeq	r1, r2, r10, lsr #32
+   0x000104a0 <+208>:	andeq	r1, r2, r12, lsr #32
+End of assembler dump.
