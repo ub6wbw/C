@@ -1,0 +1,161 @@
+1	#include <stdio.h>
+2	
+3	enum Level {
+4	  LOW = 1,
+5	  MEDIUM,
+6	  HIGH
+7	};
+8	
+9	int main() {
+10	  enum Level myVar = MEDIUM;
+11	
+12	  switch (myVar) {
+13	    case 1:
+14	      printf("Low Level");
+15	      break;
+16	    case 2:
+17	      printf("Medium level");
+18	      break;
+19	    case 3:
+20	      printf("High level");
+21	      break;
+22	  }
+23	  return 0;
+24	}
+
+Dump of assembler code for function main:
+   0x00010408 <+0>:	push	{r11, lr}
+   0x0001040c <+4>:	add	r11, sp, #4
+   0x00010410 <+8>:	sub	sp, sp, #8
+   0x00010414 <+12>:	mov	r3, #2
+   0x00010418 <+16>:	str	r3, [r11, #-8]
+   0x0001041c <+20>:	ldr	r3, [r11, #-8]
+   0x00010420 <+24>:	cmp	r3, #3
+   0x00010424 <+28>:	beq	0x10468 <main+96>
+   0x00010428 <+32>:	ldr	r3, [r11, #-8]
+   0x0001042c <+36>:	cmp	r3, #3
+   0x00010430 <+40>:	bhi	0x10474 <main+108>
+   0x00010434 <+44>:	ldr	r3, [r11, #-8]
+   0x00010438 <+48>:	cmp	r3, #1
+   0x0001043c <+52>:	beq	0x10450 <main+72>
+   0x00010440 <+56>:	ldr	r3, [r11, #-8]
+   0x00010444 <+60>:	cmp	r3, #2
+   0x00010448 <+64>:	beq	0x1045c <main+84>
+   0x0001044c <+68>:	b	0x10474 <main+108>
+   0x00010450 <+72>:	ldr	r0, [pc, #44]	; 0x10484 <main+124>
+   0x00010454 <+76>:	bl	0x102e8 <printf@plt>
+   0x00010458 <+80>:	b	0x10474 <main+108>
+   0x0001045c <+84>:	ldr	r0, [pc, #36]	; 0x10488 <main+128>
+   0x00010460 <+88>:	bl	0x102e8 <printf@plt>
+   0x00010464 <+92>:	b	0x10474 <main+108>
+   0x00010468 <+96>:	ldr	r0, [pc, #28]	; 0x1048c <main+132>
+   0x0001046c <+100>:	bl	0x102e8 <printf@plt>
+   0x00010470 <+104>:	nop			; (mov r0, r0)
+   0x00010474 <+108>:	mov	r3, #0
+   0x00010478 <+112>:	mov	r0, r3
+   0x0001047c <+116>:	sub	sp, r11, #4
+   0x00010480 <+120>:	pop	{r11, pc}
+   0x00010484 <+124>:	muleq	r1, r0, r5
+   0x00010488 <+128>:	muleq	r1, r12, r5
+   0x0001048c <+132>:	andeq	r0, r1, r12, lsr #11
+End of assembler dump.
+
+Dump of assembler code for function main:
+9	int main() {
+   0x00010408 <+0>:	push	{r11, lr}
+   0x0001040c <+4>:	add	r11, sp, #4
+   0x00010410 <+8>:	sub	sp, sp, #8
+
+10	  enum Level myVar = MEDIUM;
+   0x00010414 <+12>:	mov	r3, #2
+   0x00010418 <+16>:	str	r3, [r11, #-8]
+
+11	
+12	  switch (myVar) {
+   0x0001041c <+20>:	ldr	r3, [r11, #-8]
+   0x00010420 <+24>:	cmp	r3, #3
+   0x00010424 <+28>:	beq	0x10468 <main+96>
+   0x00010428 <+32>:	ldr	r3, [r11, #-8]
+   0x0001042c <+36>:	cmp	r3, #3
+   0x00010430 <+40>:	bhi	0x10474 <main+108>
+   0x00010434 <+44>:	ldr	r3, [r11, #-8]
+   0x00010438 <+48>:	cmp	r3, #1
+   0x0001043c <+52>:	beq	0x10450 <main+72>
+   0x00010440 <+56>:	ldr	r3, [r11, #-8]
+   0x00010444 <+60>:	cmp	r3, #2
+   0x00010448 <+64>:	beq	0x1045c <main+84>
+   0x0001044c <+68>:	b	0x10474 <main+108>
+
+13	    case 1:
+14	      printf("Low Level");
+   0x00010450 <+72>:	ldr	r0, [pc, #44]	; 0x10484 <main+124>
+   0x00010454 <+76>:	bl	0x102e8 <printf@plt>
+
+15	      break;
+   0x00010458 <+80>:	b	0x10474 <main+108>
+
+16	    case 2:
+17	      printf("Medium level");
+   0x0001045c <+84>:	ldr	r0, [pc, #36]	; 0x10488 <main+128>
+   0x00010460 <+88>:	bl	0x102e8 <printf@plt>
+
+18	      break;
+   0x00010464 <+92>:	b	0x10474 <main+108>
+
+19	    case 3:
+20	      printf("High level");
+   0x00010468 <+96>:	ldr	r0, [pc, #28]	; 0x1048c <main+132>
+   0x0001046c <+100>:	bl	0x102e8 <printf@plt>
+
+21	      break;
+   0x00010470 <+104>:	nop			; (mov r0, r0)
+
+22	  }
+23	  return 0;
+   0x00010474 <+108>:	mov	r3, #0
+
+24	}
+   0x00010478 <+112>:	mov	r0, r3
+   0x0001047c <+116>:	sub	sp, r11, #4
+   0x00010480 <+120>:	pop	{r11, pc}
+   0x00010484 <+124>:	muleq	r1, r0, r5
+   0x00010488 <+128>:	muleq	r1, r12, r5
+   0x0001048c <+132>:	andeq	r0, r1, r12, lsr #11
+
+End of assembler dump.
+Dump of assembler code for function main:
+   0x00010408 <+0>:	00 48 2d e9	push	{r11, lr}
+   0x0001040c <+4>:	04 b0 8d e2	add	r11, sp, #4
+   0x00010410 <+8>:	08 d0 4d e2	sub	sp, sp, #8
+   0x00010414 <+12>:	02 30 a0 e3	mov	r3, #2
+   0x00010418 <+16>:	08 30 0b e5	str	r3, [r11, #-8]
+   0x0001041c <+20>:	08 30 1b e5	ldr	r3, [r11, #-8]
+   0x00010420 <+24>:	03 00 53 e3	cmp	r3, #3
+   0x00010424 <+28>:	0f 00 00 0a	beq	0x10468 <main+96>
+   0x00010428 <+32>:	08 30 1b e5	ldr	r3, [r11, #-8]
+   0x0001042c <+36>:	03 00 53 e3	cmp	r3, #3
+   0x00010430 <+40>:	0f 00 00 8a	bhi	0x10474 <main+108>
+   0x00010434 <+44>:	08 30 1b e5	ldr	r3, [r11, #-8]
+   0x00010438 <+48>:	01 00 53 e3	cmp	r3, #1
+   0x0001043c <+52>:	03 00 00 0a	beq	0x10450 <main+72>
+   0x00010440 <+56>:	08 30 1b e5	ldr	r3, [r11, #-8]
+   0x00010444 <+60>:	02 00 53 e3	cmp	r3, #2
+   0x00010448 <+64>:	03 00 00 0a	beq	0x1045c <main+84>
+   0x0001044c <+68>:	08 00 00 ea	b	0x10474 <main+108>
+   0x00010450 <+72>:	2c 00 9f e5	ldr	r0, [pc, #44]	; 0x10484 <main+124>
+   0x00010454 <+76>:	a3 ff ff eb	bl	0x102e8 <printf@plt>
+   0x00010458 <+80>:	05 00 00 ea	b	0x10474 <main+108>
+   0x0001045c <+84>:	24 00 9f e5	ldr	r0, [pc, #36]	; 0x10488 <main+128>
+   0x00010460 <+88>:	a0 ff ff eb	bl	0x102e8 <printf@plt>
+   0x00010464 <+92>:	02 00 00 ea	b	0x10474 <main+108>
+   0x00010468 <+96>:	1c 00 9f e5	ldr	r0, [pc, #28]	; 0x1048c <main+132>
+   0x0001046c <+100>:	9d ff ff eb	bl	0x102e8 <printf@plt>
+   0x00010470 <+104>:	00 00 a0 e1	nop			; (mov r0, r0)
+   0x00010474 <+108>:	00 30 a0 e3	mov	r3, #0
+   0x00010478 <+112>:	03 00 a0 e1	mov	r0, r3
+   0x0001047c <+116>:	04 d0 4b e2	sub	sp, r11, #4
+   0x00010480 <+120>:	00 88 bd e8	pop	{r11, pc}
+   0x00010484 <+124>:	90 05 01 00	muleq	r1, r0, r5
+   0x00010488 <+128>:	9c 05 01 00	muleq	r1, r12, r5
+   0x0001048c <+132>:	ac 05 01 00	andeq	r0, r1, r12, lsr #11
+End of assembler dump.
